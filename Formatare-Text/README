@@ -1,0 +1,98 @@
+================================================================================
+NUME: BARUTA DANIEL MIHAIL
+SERIA: CD
+GRUPA: 311
+================================================================================
+
+Tema 2 - Formatare text
+
+-> main.c
+    Programul incepe prin citirea textului din fisierul dat ca argument in
+matricea text, careia i se face o copie pentru cazul in care avem o operatie
+invalida. 
+    Urmeaza procesarea operatilor de formatare a textului. Acestea vor fi puse
+intr-o matrice de 10 linii, deoarece doar primele 10 operatii sunt aplicate
+textului, iar restul ignorate. 
+    Urmatorul pas este cel de aplicare al comenzilor. Se identifica operatia cu 
+strbrk, iar apoi ii sunt extrase argumentele intr-o matrice arguments, iar 
+numarul acestora este retinut in argumnets_count. In functie de tipul comenzii
+este apelata functia corespunzatoare. Functiile de formatare au acelasi tip de
+argumente: text - textul sub forma de materice, argv - argumentele operatie puse
+intr-o matrice, argc - numarul de argumente, lines - numarul de linii ale 
+textului.
+    In cazul in care o functie de formatare intoarece codul
+ERR_INVALID_OPERATION programul scrie textul original in fisierul de output
+si se incheie executia programului.
+
+-> wrap.c
+    Se extrag argumentele si se verifica validitatea acestora. Se adauga un '\n'
+pe ultima linie a textului(motiv evident imediat), si se sterg spatii goale de
+la sfarsitul fiecarei linii.
+    Algoritmul de wrap este urmatorul:
+    - daca inceputul de paragraf are indentare aceasta se pastreaza(cazul in 
+    care identarea este mai mare decat max_lenght, identarea ramasa este egala
+    cu numarul de spatii % max_lenght, iar restul de spatii se transforma in
+    '\n' dupa formula add_newline = count/max_lenght)
+    - fiecare cuvant este identifcat cu ajutorul functiei strtok, si este
+    adaugat la noua matrice text astfel:
+        - daca dupa adaugarea cuvantului lungimea liniei nu depaseste max_lenght
+        acesta este adaugat, in caz contrar se trece la o noua linie
+        - daca cuvantul curent este '\n' se eliminat ultimul spatiu de pe ultima
+        linie si este adaugat caracterul '\n' in locul acestuia. Cuvantul este 
+        adaugat la linia curenta si se trece la urmatoarea linie
+    Se elimina ultima linie(aceasta va avea un caracter '\n' ce este in plus,
+acesta a fost pus la inceputul algoritmului pentru ca acesta sa adauge un 
+caracter '\n' la utlima linie a textului). Se copiaza din buffer in text si se
+incheie functia
+
+-> paragraph.c
+    Se extrag argumentele si se verifica validitatea acestora. Algortimul este 
+destul de direct:
+    - daca se intalneste un paragraf sau linia 0 este in intervalul de 
+    paragrafare atunci primei linii a paragfului i se sterg toate spatiile albe
+    de la inceput de propozitie si i se insereaza numarul corespunzator.
+
+-> ordered_list.c
+    Se extrag argumentele si se verifica validitatea acestora. Se identifica 
+tipul de numerotare, cat si tipul de sortare si se elimina spatiile albe de la 
+inceputul fiecarei linii. Se aplica functia sortLines, pe intervalul determinat 
+de argumentele operatiei. Apoi, pentru fiecare linie din intervalul [start_line,
+end_line] se aplica numerotarea corespunzatoare.
+
+-> list.c
+    Se extrag argumentele si se verifica validitatea acestora. Se identifica 
+tipul de numerotare si se elimina spatiile albe de la inceputul fiecarei linii.
+Apoi, pentru fiecare linie din intervalul [start_line, end_line] se aplica 
+numerotarea corespunzatoare.
+
+-> justify.c
+    Se extrag argumentele si se verifica validitatea acestora. Se sterg spatiile
+de la inceputul fiecarei linii din invervalul [start_line, end_line]. Urmatorul
+pas este de a calcula lungimea celei mai lungi linii din fisier. Pentru fiecare
+linie se calculeaza cate cuvinte se gasesc pe aceasta. Numarul de spatii de 
+adaugat este egal cu max_line_lenght - (words_count - 1). Aceste spatii se
+distribuie astfel:
+    - numarul de spatii obligatorii intre 2 cuvinte adiacente 
+            number_of_spaces/(words_count - 1)
+    - numar de spatii ramase
+            number_of_spaces % (words_count - 1)
+    Spatiile ramase sunt adaugate cate unul intre 2 cuvinte adiacente pana se
+consuma toate.
+
+-> center.c
+    Se extrag argumentele si se verifica validitatea acestora. Urmatorul pas 
+este de a calcula lungimea celei mai lungi linii din fisier. Numarul de spatii
+de adaugat la inceputul fiecarei linii este:
+            number_of_spaces = diff/2 + diff % 2
+    Unde diff este:
+            diff = max_line - len
+
+-> alignRight.c
+    Se extrag argumentele si se verifica validitatea acestora. Urmatorul pas 
+este de a calcula lungimea celei mai lungi linii din fisier. La fiecare
+linie se adauga un numar de spatii egal cu:
+            max_line - len;
+
+-> alignLeft.c
+    Se extrag argumentele si se verifica validitatea acestora. Urmatorul pas 
+este de a elimina toate spatiile albe de la inceputul fiecarei linii.

@@ -1,0 +1,59 @@
+================================================================================
+NUME: BARUTA DANIEL MIHAIL
+SERIA: CD
+GRUPA: 311
+================================================================================
+
+Tema 3 - TetriPic
+
+-> main.c
+    Contine un switch care apeleaza task-ul necesar. Foloseste parametrii 
+transmisi prin linia de comanda. Make-ul apeleaza executabilul cu parametrii
+necesari.
+
+-> task1.c
+    Contine doar o functie task1(), destul de repetitiva. Creaza o matrice de 
+pixeli din un sir de carctere. Populeaza cu informatie header-ele BMP-ului
+bazandu-se pe marimea imaginii. Toate acestea sunt scrise pe disc. Procesul se
+repeta pt fiecare piesa.
+
+-> task2.c
+    Aceeasi idee ca la task1 doar ca aici fiecare piesa mai este si rotita cu 
+90, 180 si 270 de grade
+
+-> task3.c
+    Citesc numarul de piese si dimensiunea tablei de joc. Creez o tabla cu 
+marimea specificata + 4 la inaltimea acesteia (partea alba). Pt fiecare linie 
+Citesc id-ul piesei, rotatia si coloana, ii creez modelul si alaturi de tabla 
+de joc le ofer ca parametrii functiei simulate care imi simuleaza miscarea.
+Repet pana raman fara linii de citit sau jocul se termina (simulate returneaza 
+1 in caz de endgame).
+
+-> task4.c
+    Algoritmul este acelasi ca cel de la task3, insa tabla de joc initiala nu
+mai este goala. Ea este creata avand ca model fisierul bmp oferit cat input
+de catre checker
+
+NOTE:   Tabla de joc este construita din 0-uri si id-urile pieselor. Id-urile 
+     sunt valorile ascii ale literelor ce reprezinta piesele
+     Eg: piesa O 
+     0  0  0  0
+     0  79 79 0
+     0  79 79 0
+     0  0  0  0
+     Util pentru functiile din utils.c. Eg: idToColor pt fiecare id imi 
+     returneaza culoarea (O - Yellow), sau colorToID folosit cu precadere
+     in task4 si bonus pentru crearea tablei de joc din matricea de pixeli.
+
+-> bonus.c
+    Tabla de joc este creata avand ca model fisierul bmp oferit cat input de
+catre checker. Parcurg matricea si la fiecare valoare nenula intalnita (un id)
+o sa creez piesa model, si o voi roti cu 0, 90, 180, 270 de grade. Dupa fiecare
+rotatie piesa este comparata cu piesa de pe tabla. In cazul in care sunt 
+identice este memorata rotatia, tipul piesei si pozitia acesteia pentru a fi 
+scrise in fisierul de output. In final piesa este stearsa de pe tabla.
+Algoritmul se repeta pana cand tabla ramane goala.
+
+-> utils.c
+    Contine o multitudine de functii auxiliare ce ajuta la rezolvarea a cel 
+putin doua task-uri.

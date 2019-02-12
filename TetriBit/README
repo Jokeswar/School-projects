@@ -1,0 +1,47 @@
+================================================================================
+NUME: BARUTA DANIEL MIHAIL
+SERIA: CD
+GRUPA: 311
+================================================================================
+
+Tema 1 - TetriBit
+
+Functii utilitare:
+	- uint64_t setBitAt(uint64_t, int)
+	- uint64_t getBitAt(uint64_t, int)
+	- uint64_t setByteAt(uint64_t, int) - umple byte-ul specificat cu valori de 1
+	- float getScore(unsigned int, uint64_t) - calculeaza scorul
+	- int getLeftBoundary(uint64_t) - returneaza distanta de la cea mai din stanga
+					valoare de 1 pana la finalul byte-ului in care
+					s-a gasit respectiva valoare de 1
+	- int getRightBoundary(uint64_t) - returneaza distanta de la cea mai din stanga
+					 valoare de 1 pana la finalul byte-ului in care
+					 s-a gasit respectiva valoare de 1
+	- int leftBlock(uint64_t, uint64_t) - returneaza distanta de la cea mai din 
+					    stanga valoare de 1 pana la prima valoare
+					    de 1 a hartii aflata in stanga valorii de
+					    1 a piesei
+	- int rightBlock(uint64_t, uint64_t) - returneaza distanta de la cea mai din 
+					     dreapta valoare de 1 pana la prima valoare
+					     de 1 a hartii aflata in dreapta valorii de
+					     1 a piesei
+
+Descriere algoritm:
+	Dupa citirea hartii, se citeste numarul de piese si urmatorul algoritm este 
+repetat de atatea ori cate piese avem:
+		- citim piesa
+		- repetam urmatorul algoritm de 8 ori:
+			- citim mutarea
+			- coboram piesa
+			- verificam daca coborarea este valida. Daca nu si piesa nu a intrat 
+			complet pe ecran jocul se termina si afisam scorul corespunzator. Daca piesa
+			a intrat complet o adaugam la harta si ignoram restul mutarilor
+			- in caz contrar se executa mutarea stanga, dreapta. Piesa se poate misca
+			in directia corespunzatoare miscarii avand magnitudinea miscarii
+			minimul dintre distanta de la piesa pana la marginea hartii, de la piesa pana
+			la prima obstructie a hartii si magnitudinea mutarii
+			- se afiseaza harta si daca suntem la ultima iteratie se adauga piesa la 
+			harta
+		- verificam daca exista linii complete si le eliminam
+	- afisam scorul
+	- programul isi termina executia
