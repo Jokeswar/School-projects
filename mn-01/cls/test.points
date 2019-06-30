@@ -1,0 +1,9 @@
+# Created by Octave 3.2.4, Sun Feb 12 22:56:36 2012 EET <andrei@andrei-xps>
+# name: points
+# type: matrix
+# rows: 4
+# columns: 3
+ 2 2 2
+ -2 -2 -2
+ -4 -4 -4
+ 4 4 4

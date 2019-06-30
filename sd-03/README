@@ -1,0 +1,36 @@
+================================================================================
+NUME: BARUTA DANIEL MIHAIL
+SERIA: CD
+GRUPA: 311
+================================================================================
+
+    Se citesc valorile din fisierul de intrare intr-un array de struct-uri de
+tip Point2D. Acesta este folosit pentru o reprezentare mai usoara a punctelor 
+in spatil caretezian. Pe baza vectorilor de coordonate se construieste matricea 
+de costuri. Se aplica pasii 2 si 3 pe matricea costurilor si se verifica daca 
+avem o solutie printr-un algoritm de tip greedy ce incearca sa asigneaze cat 
+mai multe centrale la cate un oras fiecare. Algoritmul este urmatorul:
+
+    1) Se contruieste un vector de struct-uri de forma:
+        typedef struct 
+        {
+            int powerPlant; // which power plant
+            int zeros;      // how many tasks can it effectively do
+        } Task;
+    unde powerPlant reprezinta numarul liniei(al centralei respective) si zeros
+    numarul de zerouri de pe acea linie.
+    
+    2) Se soteaza crescator acest vector dupa numarul de zerouri.
+
+    3) Se parcurge vectorul liniar si se verifica daca la momentul i, unul din 
+    zerourile lniei j din struct-ul i poate fi asignat unui oras. Pentru 
+    determinarea acestui fapt se foloseste un vector cu n (numarul de coloane 
+    al matricii de costuri) elemente. Daca elementul i al vectorului este -1 
+    insemana ca orasul i nu e conectat la nicio centrala si valorea este 
+    inlocuita de linia corespunzatoare centralei. 
+
+    Daca s-au asignat toate centralele inseamna ca am ajuns la o solutie, 
+altfel trecem la pasul intermediar in care se traseaza un numar minim de linii
+pentru a acoperii toate zerourile. Pe baza lor se va continua la pasul 5 unde 
+se cauta valoarea minima neacoperita. Algoritmul continua pana cand se toate
+centralele se conecteaza la cate un oras.

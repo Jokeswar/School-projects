@@ -1,0 +1,68 @@
+================================================================================
+NUME: BARUTA DANIEL MIHAIL
+SERIA: CD
+GRUPA: 311
+================================================================================
+
+--> initilize_clubs
+        Initializam primul club pentru usurinta, apoi folosind un for se creeaza
+    celelalte n-1 cluburi
+
+--> add_club
+        Daca lista de cluburi este goala, se initializeaza un nou club ce este 
+    returnat, altfel se cauta sfarsitul listei pentru inserarea noului cluburi
+
+--> add_player
+        Se cauta clubul corespunzator, apoi folosind se initializeaza un nou
+    player si cu ajutorul functiei insert se adauga in pozitia corecta noul
+    jucator
+
+--> transfer_player
+        Se cauta clubrile corespunzatoare, se cauta player-ul corespunzator, se
+    sterg vechile legaturi si apoi este inserat in poztia corecta in lista de 
+    playeri a noului club
+
+--> remove_player
+        Se cauta clubul corespunzator, se cauta player-ul corespunzator, se
+    sterg vechile legaturi si se elibereaza memoria
+
+--> update_game_position & update_score
+        Se cauta clubul corespunzator, se cauta player-ul corespunzator si se
+    modifica informatiile relevante
+
+--> add_injury & recover_from_injury
+         Se cauta clubul corespunzator, se cauta player-ul corespunzator, se
+    sterg vechile legaturi si se insereaza jucatorul in lista corespunzatoare
+    functiei
+
+--> union_teams
+        Se cauta clubrile corespunzatoare, se duplicheaza fiecare player si apoi
+    se concateneaza la o lista simplu inlantuita ce va fi returnata
+
+--> get_best_player
+        Pentru fiecare club se cauta jucatorul de pe pozitia data cu cel mai
+    mare scor.
+
+--> get_top_players
+        Pentru fiecare club se creeaza o copie pentru fiecare jucator si acestea
+    se insereaza intro lista ordonata dupa scor descrescator, apoi dupa nume 
+    crescator. Se returneaza primii N playeri, restul de memorie fiind eliberata
+
+--> get_players_by_score
+        Pentru fiecare club se cauta jucatorii ce au scorul mai mare decat cel
+    dat ca referinta si cei care respecta sunt copiati si inserati intr-o lista
+    ordonata ce este returnata la finalul functiei
+
+--> get_players_by_position
+        Pentru fiecare club se cauta jucatorii ce au positia la fel cu cea data
+    ca referinta si cei care respecta sunt copiati si inserati intr-o lista
+    ordonata ce este returnata la finalul functiei
+
+--> get_best_team
+        Folosind get_best_N_by_pos gasim cei mai buni N jucatori de pe pozitia 
+    data. Rezultatul tuturor apelurilor este concatenat intr-o lista ordonata
+    ce este returnata.
+
+--> insert_player
+        Insereaza, cu ajutorul functiei de comparare cmp, ordonat intr-o lista
+    simplu inlantuita un player dat ca parametru

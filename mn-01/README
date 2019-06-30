@@ -1,0 +1,31 @@
+================================================================================
+NUME: BARUTA DANIEL MIHAIL
+SERIA: CD
+GRUPA: 311
+================================================================================
+
+--> read_input_data
+        Citirea datelor din fisierele oferite ca parametrii. Conversia din 
+    struct in matrice este putin dubioasa. struct->cell->matrix
+
+--> clustering_pc
+        Alegem centroizii initiali random folosind outputul de la functia sort.
+    Se calculeaza distantele euclidiene de la fiecare centroid la punctul i. 
+    Daca distanta de la centroidul j la punctul i e minima atunci punctul i 
+    apartine clusterului j. Se aduna punctele din fiecare cluster si se imparte 
+    rezultatul la cate puncte sunt si astfel se afla valorile noilor centroizi. 
+    Se verifica daca noii centroizi sunt la fel cu cei vechi si se iese din 
+    functie in caz afirmativ sau se continua algoritmul in caz negativ
+
+--> view_clusters
+        Se alege o paleta cu atatea culori cati centroizi sunt. Se determina
+    carui cluster fiecare punct apartine si i se atribuie culoarea 
+    corespunzatoare. La final se ploteaza graficul
+
+--> compute_cost
+        Se calculeaza distanta de la fiecare punct la fiecare centroid si se 
+    alege minimul dintre valori. Aceasta este adaugata la variabila cost.
+
+--> view_cost_vs_nc
+        Se calculeaza i (i = 1, n) centroizii pentru setul de puncte dat. Apoi
+    se calculeaza costul. In final datele sunt plotate pe un grafic Cost|Numar.

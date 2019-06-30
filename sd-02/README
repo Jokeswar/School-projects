@@ -1,0 +1,31 @@
+================================================================================
+NUME: BARUTA DANIEL MIHAIL
+SERIA: CD
+GRUPA: 311
+================================================================================
+
+--> TreeMap
+
+    O implementare tipica de AVL. Pentru insert se cauta pozitia corespunzatoare
+a elementului in arbore. Daca cheia de inserat exista noul element este adaugat
+la finalul listei al carei inceput este nodul cu acea cheie. Daca este distincta
+este adaugata in pozitia corecta. Se merge pe drumul de la noul nod inserat in
+sus catre radacina si se verifica daca nodul curent este sau nu echilibrat. In 
+caz negativ se aplica rotirile corespunzatoare.
+    Pentru stregere se cauta cheia in arbore. Daca ea nu este unica, se sterge 
+ultimul element din lista, altfel se intra pe unul din urmatoarele 3 cazuri:
+    1) Este frunza, si parintele acesteia isi face legatura corespunzatoare
+    catre acea frunza NULL. Verificare proprietatii de AVL incepe de la 
+    parintele frunzei catre radacina;
+    2) Are doar un copil caz in care nodul de eliminat este inlocuit de copilul
+    sau. De asemenea verificare proprietatii de AVL incepe de la 
+    parintele nodului sters catre radacina;
+    3) Are doi copii, caz in care nodul este inlocuit cu succesorul sau. 
+    Verificarea proprietatii de AVL incepe de la parintele initial al 
+    succesorului in sus catre radacina.
+
+--> Tema2
+
+    Pentru cautarea primului element care respecta conditia folosim cautarea 
+binara pe arbore. Parcurgem lista de la pozitia gasita si pastram elementele
+care respecta conditia punand index-ul intr-un range.
